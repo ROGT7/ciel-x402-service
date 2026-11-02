@@ -3,3 +3,4 @@ uvicorn[standard]
 pydantic
 x402
 requests
+psutil
