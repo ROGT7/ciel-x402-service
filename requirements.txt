@@ -1,7 +1,10 @@
 fastapi
 uvicorn[standard]
 pydantic
-x402
+x402[fastapi]
 requests
 psutil
 jsonschema
+eth-abi
+eth-account
+web3
