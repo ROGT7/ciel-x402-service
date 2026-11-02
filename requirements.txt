@@ -4,3 +4,4 @@ pydantic
 x402
 requests
 psutil
+jsonschema
