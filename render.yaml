@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: ciel-x402-service
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn ciel_x402_server_v3:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: X402_PAY_TO
+        sync: false
