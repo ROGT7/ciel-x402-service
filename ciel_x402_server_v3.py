@@ -76,9 +76,13 @@ else:
           f"Using {FACILITATOR_URL} on {NETWORK}")
 
 # Load service registry
-REGISTRY_PATH = os.environ.get("M2M_REGISTRY_PATH", "/opt/ciel/memory/m2m_service_registry.json")
-with open(REGISTRY_PATH, "r") as f:
-    registry = json.load(f)
+REGISTRY_PATH = os.environ.get("M2M_REGISTRY_PATH") or str(
+    Path(__file__).resolve().parent / "memory" / "m2m_service_registry.json")
+try:
+    with open(REGISTRY_PATH, "r") as f:
+        registry = json.load(f)
+except Exception:
+    registry = {"services": []}
 
 # Extract services from registry
 services = registry.get("core_services", []) + registry.get("alternative_services", [])
